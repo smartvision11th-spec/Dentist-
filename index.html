@@ -1,778 +1,936 @@
+<!-- 
+PREMIUM DENTIST WEBSITE
+Single File: index.html
+Ready for GitHub Upload
+-->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <!-- SEO -->
-  <title>Luxury Dental Care | Premium Cosmetic & Family Dentist</title>
-  <meta name="description" content="Premium dental clinic with cosmetic dentistry, implants, whitening, invisible aligners, and luxury patient care experience." />
-  <meta name="keywords" content="dentist, cosmetic dentistry, dental implants, teeth whitening, luxury dental clinic, orthodontics" />
-  <meta name="author" content="Luxury Dental Care" />
-  <meta property="og:title" content="Luxury Dental Care" />
-  <meta property="og:description" content="World-class premium dental experience with stunning smile transformations." />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0f172a" />
+  <title>Luxury Dental Clinic | Premium Dentist Website</title>
+
+  <meta name="description"
+    content="Premium dental clinic website with booking form, reviews, doctors, blogs, animations, and modern dental care experience." />
+
+  <meta name="keywords"
+    content="Dentist, Dental Clinic, Teeth Whitening, Dental Implants, Cosmetic Dentistry, Orthodontics" />
+
+  <meta name="author" content="Luxury Dental Clinic">
+
+  <meta property="og:title" content="Luxury Dental Clinic">
+  <meta property="og:description"
+    content="Premium smile transformation with luxury dental care.">
+  <meta property="og:type" content="website">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
 
   <!-- Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
-    :root{
-      --bg:#07111f;
-      --bg2:#0f172a;
-      --primary:#7dd3fc;
-      --secondary:#38bdf8;
-      --white:#ffffff;
-      --muted:#cbd5e1;
-      --glass:rgba(255,255,255,0.08);
-      --border:rgba(255,255,255,0.12);
-      --shadow:0 10px 40px rgba(0,0,0,0.4);
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #08111f;
+      color: white;
+      overflow-x: hidden;
     }
 
-    body{
-      font-family:'Inter',sans-serif;
-      background:linear-gradient(180deg,#020617,#07111f,#0f172a);
-      color:var(--white);
-      overflow-x:hidden;
+    h1,
+    h2,
+    h3 {
+      font-family: 'Playfair Display', serif;
     }
 
-    /* Animated Background */
-
-    .bg-animation{
-      position:fixed;
-      width:100%;
-      height:100%;
-      top:0;
-      left:0;
-      z-index:-1;
-      overflow:hidden;
+    img {
+      width: 100%;
+      display: block;
     }
 
-    .circle{
-      position:absolute;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(56,189,248,0.35), transparent);
-      animation:float 10s infinite ease-in-out;
+    a {
+      text-decoration: none;
     }
 
-    .circle:nth-child(1){
-      width:300px;
-      height:300px;
-      top:10%;
-      left:5%;
+    /* =========================
+       NAVBAR
+    ========================== */
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .circle:nth-child(2){
-      width:450px;
-      height:450px;
-      bottom:10%;
-      right:5%;
-      animation-delay:2s;
+    nav {
+      max-width: 1300px;
+      margin: auto;
+      padding: 18px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .circle:nth-child(3){
-      width:220px;
-      height:220px;
-      top:50%;
-      left:45%;
-      animation-delay:4s;
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #7dd3fc;
     }
 
-    @keyframes float{
-      0%,100%{
-        transform:translateY(0px) translateX(0px);
-      }
-      50%{
-        transform:translateY(-40px) translateX(20px);
-      }
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
     }
 
-    /* Navbar */
-
-    header{
-      position:fixed;
-      top:0;
-      width:100%;
-      z-index:1000;
-      backdrop-filter:blur(12px);
-      background:rgba(7,17,31,0.6);
-      border-bottom:1px solid rgba(255,255,255,0.08);
+    nav ul li a {
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
     }
 
-    nav{
-      max-width:1300px;
-      margin:auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:20px;
+    nav ul li a:hover {
+      color: #7dd3fc;
     }
 
-    .logo{
-      font-size:1.8rem;
-      font-weight:700;
-      color:white;
-      font-family:'Playfair Display', serif;
+    .btn {
+      padding: 14px 26px;
+      border-radius: 50px;
+      border: none;
+      background: linear-gradient(135deg, #38bdf8, #7dd3fc);
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.4s;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
     }
 
-    .logo span{
-      color:var(--primary);
+    .btn:hover {
+      transform: translateY(-5px);
     }
 
-    nav ul{
-      display:flex;
-      gap:30px;
-      list-style:none;
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      height: 100vh;
+      position: relative;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.6),
+          rgba(0, 0, 0, 0.6)),
+        url('https://images.unsplash.com/photo-1588776814546-ec7e1c9c6f93?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      padding: 0 8%;
     }
 
-    nav ul li a{
-      color:white;
-      text-decoration:none;
-      font-weight:500;
-      transition:0.3s;
+    .hero-content {
+      max-width: 700px;
+      animation: fadeUp 1.5s ease;
     }
 
-    nav ul li a:hover{
-      color:var(--primary);
+    .hero h1 {
+      font-size: 5rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
     }
 
-    .btn{
-      padding:14px 26px;
-      border:none;
-      border-radius:50px;
-      background:linear-gradient(135deg,var(--secondary),var(--primary));
-      color:#001018;
-      font-weight:700;
-      cursor:pointer;
-      transition:0.4s;
-      box-shadow:0 0 25px rgba(56,189,248,0.45);
-      text-decoration:none;
-      display:inline-block;
+    .hero span {
+      color: #7dd3fc;
     }
 
-    .btn:hover{
-      transform:translateY(-4px) scale(1.03);
-      box-shadow:0 0 45px rgba(56,189,248,0.7);
+    .hero p {
+      color: #d1d5db;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
     }
 
-    /* Hero */
-
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:120px 8%;
-      position:relative;
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .hero-content{
-      max-width:700px;
-      animation:fadeUp 1.2s ease;
+    /* =========================
+       SECTION
+    ========================== */
+
+    section {
+      padding: 110px 8%;
     }
 
-    .hero h1{
-      font-size:4.8rem;
-      line-height:1.1;
-      margin-bottom:20px;
-      font-family:'Playfair Display', serif;
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
     }
 
-    .hero h1 span{
-      background:linear-gradient(to right,var(--primary),white);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+    .section-title h2 {
+      font-size: 3rem;
+      margin-bottom: 15px;
     }
 
-    .hero p{
-      color:var(--muted);
-      font-size:1.1rem;
-      line-height:1.8;
-      margin-bottom:35px;
+    .section-title p {
+      color: #cbd5e1;
+      max-width: 750px;
+      margin: auto;
+      line-height: 1.8;
     }
 
-    .hero-buttons{
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
+    /* =========================
+       FEATURES
+    ========================== */
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 30px;
     }
 
-    .glass-card{
-      position:absolute;
-      right:8%;
-      width:360px;
-      padding:35px;
-      border-radius:28px;
-      background:var(--glass);
-      border:1px solid var(--border);
-      backdrop-filter:blur(15px);
-      box-shadow:var(--shadow);
-      animation:floatCard 6s ease-in-out infinite;
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 35px;
+      border-radius: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: 0.4s;
+      backdrop-filter: blur(10px);
     }
 
-    .glass-card h3{
-      margin-bottom:20px;
-      font-size:1.6rem;
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2);
     }
 
-    .glass-card p{
-      color:var(--muted);
-      line-height:1.7;
+    .feature-card i {
+      font-size: 2.5rem;
+      color: #7dd3fc;
+      margin-bottom: 20px;
     }
 
-    .glass-card .rating{
-      margin-top:20px;
-      color:gold;
-      font-size:1.2rem;
+    .feature-card h3 {
+      margin-bottom: 15px;
     }
 
-    @keyframes floatCard{
-      0%,100%{
-        transform:translateY(0px);
-      }
-      50%{
-        transform:translateY(-20px);
-      }
+    .feature-card p {
+      color: #cbd5e1;
+      line-height: 1.8;
     }
 
-    /* Sections */
+    /* =========================
+       CLINIC IMAGES
+    ========================== */
 
-    section{
-      padding:110px 8%;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
     }
 
-    .section-title{
-      text-align:center;
-      margin-bottom:70px;
+    .gallery img {
+      border-radius: 25px;
+      height: 300px;
+      object-fit: cover;
+      transition: 0.5s;
     }
 
-    .section-title h2{
-      font-size:3rem;
-      margin-bottom:15px;
-      font-family:'Playfair Display', serif;
+    .gallery img:hover {
+      transform: scale(1.04);
     }
 
-    .section-title p{
-      color:var(--muted);
-      max-width:700px;
-      margin:auto;
-      line-height:1.8;
+    /* =========================
+       DOCTORS
+    ========================== */
+
+    .doctor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
     }
 
-    /* Services */
-
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
+    .doctor-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 30px;
+      overflow: hidden;
+      transition: 0.4s;
     }
 
-    .service-card{
-      padding:35px;
-      border-radius:28px;
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
-      transition:0.5s;
-      position:relative;
-      overflow:hidden;
+    .doctor-card:hover {
+      transform: translateY(-10px);
     }
 
-    .service-card::before{
-      content:'';
-      position:absolute;
-      width:200%;
-      height:200%;
-      background:linear-gradient(45deg,transparent,rgba(125,211,252,0.15),transparent);
-      transform:rotate(45deg);
-      top:-100%;
-      left:-100%;
-      transition:0.8s;
+    .doctor-card img {
+      height: 350px;
+      object-fit: cover;
     }
 
-    .service-card:hover::before{
-      top:100%;
-      left:100%;
+    .doctor-content {
+      padding: 25px;
     }
 
-    .service-card:hover{
-      transform:translateY(-12px);
-      border-color:rgba(125,211,252,0.4);
-      box-shadow:0 15px 40px rgba(56,189,248,0.18);
+    .doctor-content p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-top: 10px;
     }
 
-    .service-card i{
-      font-size:2.5rem;
-      color:var(--primary);
-      margin-bottom:20px;
+    /* =========================
+       PARALLAX
+    ========================== */
+
+    .parallax {
+      height: 450px;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.6),
+          rgba(0, 0, 0, 0.6)),
+        url('https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    .service-card h3{
-      margin-bottom:15px;
-      font-size:1.4rem;
+    .parallax h2 {
+      font-size: 4rem;
+      max-width: 900px;
     }
 
-    .service-card p{
-      color:var(--muted);
-      line-height:1.8;
+    /* =========================
+       REVIEWS
+    ========================== */
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
     }
 
-    /* Stats */
-
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:25px;
+    .review-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 35px;
+      border-radius: 25px;
     }
 
-    .stat-box{
-      padding:40px;
-      border-radius:24px;
-      text-align:center;
-      background:rgba(255,255,255,0.05);
-      backdrop-filter:blur(10px);
-      border:1px solid rgba(255,255,255,0.08);
+    .stars {
+      color: gold;
+      margin-bottom: 20px;
     }
 
-    .stat-box h3{
-      font-size:3rem;
-      color:var(--primary);
-      margin-bottom:10px;
+    .review-card p {
+      color: #cbd5e1;
+      line-height: 1.8;
+      margin-bottom: 20px;
     }
 
-    .stat-box p{
-      color:var(--muted);
+    /* =========================
+       BLOGS
+    ========================== */
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
     }
 
-    /* Testimonials */
-
-    .testimonial{
-      max-width:900px;
-      margin:auto;
-      padding:45px;
-      border-radius:30px;
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
-      text-align:center;
-      position:relative;
+    .blog-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 25px;
+      overflow: hidden;
+      transition: 0.4s;
     }
 
-    .testimonial i{
-      font-size:3rem;
-      color:var(--primary);
-      margin-bottom:25px;
+    .blog-card:hover {
+      transform: translateY(-10px);
     }
 
-    .testimonial p{
-      color:var(--muted);
-      line-height:2;
-      font-size:1.1rem;
-      margin-bottom:20px;
+    .blog-card img {
+      height: 250px;
+      object-fit: cover;
     }
 
-    .testimonial h4{
-      font-size:1.2rem;
+    .blog-content {
+      padding: 25px;
     }
 
-    /* CTA */
-
-    .cta{
-      text-align:center;
-      padding:100px 8%;
+    .blog-content p {
+      color: #cbd5e1;
+      line-height: 1.8;
+      margin-top: 15px;
     }
 
-    .cta-box{
-      padding:70px 30px;
-      border-radius:35px;
-      background:linear-gradient(135deg,rgba(56,189,248,0.15),rgba(255,255,255,0.05));
-      border:1px solid rgba(255,255,255,0.1);
-      backdrop-filter:blur(15px);
+    /* =========================
+       BOOKING FORM
+    ========================== */
+
+    .booking-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      align-items: center;
     }
 
-    .cta h2{
-      font-size:3rem;
-      margin-bottom:20px;
-      font-family:'Playfair Display', serif;
+    .booking-form {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
     }
 
-    .cta p{
-      color:var(--muted);
-      max-width:700px;
-      margin:0 auto 30px;
-      line-height:1.8;
+    .booking-form input,
+    .booking-form textarea,
+    .booking-form select {
+      width: 100%;
+      padding: 16px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      outline: none;
     }
 
-    footer{
-      padding:40px 8%;
-      border-top:1px solid rgba(255,255,255,0.08);
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:20px;
+    textarea {
+      resize: none;
+      height: 130px;
     }
 
-    footer p{
-      color:var(--muted);
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      padding: 50px 8%;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .socials{
-      display:flex;
-      gap:20px;
+    footer p {
+      color: #94a3b8;
     }
 
-    .socials a{
-      color:white;
-      font-size:1.2rem;
-      transition:0.3s;
+    /* =========================
+       WHATSAPP
+    ========================== */
+
+    .whatsapp {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      z-index: 999;
+      box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
+      animation: pulse 2s infinite;
     }
 
-    .socials a:hover{
-      color:var(--primary);
-      transform:translateY(-3px);
-    }
-
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(50px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-
-    /* Responsive */
-
-    @media(max-width:1000px){
-      .glass-card{
-        display:none;
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
       }
 
-      .hero h1{
-        font-size:3.5rem;
+      50% {
+        transform: scale(1.08);
+      }
+
+      100% {
+        transform: scale(1);
       }
     }
 
-    @media(max-width:768px){
+    /* =========================
+       ANIMATIONS
+    ========================== */
 
-      nav ul{
-        display:none;
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(80px);
       }
 
-      .hero{
-        text-align:center;
-      }
-
-      .hero-buttons{
-        justify-content:center;
-      }
-
-      .hero h1{
-        font-size:2.8rem;
-      }
-
-      .section-title h2{
-        font-size:2.2rem;
-      }
-
-      .cta h2{
-        font-size:2.2rem;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media(max-width:900px) {
+
+      nav ul {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .parallax h2 {
+        font-size: 2.3rem;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- Background Animation -->
-  <div class="bg-animation">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-  </div>
+  <!-- =========================
+       NAVBAR
+  ========================== -->
 
-  <!-- Header -->
   <header>
     <nav>
-      <div class="logo">Luxury<span>Dental</span></div>
+
+      <div class="logo">LuxuryDental</div>
 
       <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#stats">Results</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#doctors">Doctors</a></li>
         <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#booking">Booking</a></li>
       </ul>
 
-      <a href="#" class="btn">Book Appointment</a>
+      <a href="#booking" class="btn">Book Now</a>
+
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- =========================
+       HERO
+  ========================== -->
+
   <section class="hero">
 
     <div class="hero-content">
+
       <h1>
-        Premium Smile
-        <span>Transformation</span>
+        Premium
+        <span>Dental Care</span>
         Experience
       </h1>
 
       <p>
-        Elevate your confidence with world-class cosmetic dentistry,
-        advanced dental implants, and luxury patient care designed to
-        create unforgettable smiles.
+        Experience luxury dental treatment with advanced
+        technology, cosmetic smile transformations,
+        expert doctors, and personalized patient care.
       </p>
 
       <div class="hero-buttons">
-        <a href="#" class="btn">Get Started</a>
-        <a href="#" class="btn" style="background:white;color:#001018;">
-          Explore Services
+        <a href="#booking" class="btn">Book Appointment</a>
+        <a href="#gallery" class="btn"
+          style="background:white;color:black;">
+          Explore Clinic
         </a>
       </div>
-    </div>
 
-    <div class="glass-card">
-      <h3>Why Patients Choose Us</h3>
-
-      <p>
-        State-of-the-art technology, elite cosmetic specialists,
-        pain-free treatments, and premium hospitality designed
-        for your comfort.
-      </p>
-
-      <div class="rating">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-      </div>
     </div>
 
   </section>
 
-  <!-- Services -->
-  <section id="services">
+  <!-- =========================
+       FEATURES
+  ========================== -->
+
+  <section id="features">
 
     <div class="section-title">
-      <h2>Elite Dental Services</h2>
+      <h2>Why Choose Us</h2>
       <p>
-        Discover advanced treatments tailored to deliver beautiful,
-        healthy, and confident smiles with precision care.
+        We provide world-class dental care with luxury comfort
+        and advanced technology.
       </p>
     </div>
 
-    <div class="services-grid">
+    <div class="features-grid">
 
-      <div class="service-card">
+      <div class="feature-card">
         <i class="fa-solid fa-tooth"></i>
         <h3>Cosmetic Dentistry</h3>
-        <p>
-          Enhance your smile with veneers, smile makeovers,
-          contouring, and digital smile design.
-        </p>
+        <p>Smile makeovers, veneers, whitening, and digital smile design.</p>
       </div>
 
-      <div class="service-card">
-        <i class="fa-solid fa-teeth"></i>
-        <h3>Dental Implants</h3>
-        <p>
-          Restore missing teeth with premium implants that look,
-          feel, and function naturally.
-        </p>
-      </div>
-
-      <div class="service-card">
-        <i class="fa-solid fa-face-smile"></i>
-        <h3>Teeth Whitening</h3>
-        <p>
-          Professional whitening treatments for a brighter,
-          radiant smile in a single visit.
-        </p>
-      </div>
-
-      <div class="service-card">
+      <div class="feature-card">
         <i class="fa-solid fa-user-doctor"></i>
-        <h3>Orthodontics</h3>
-        <p>
-          Modern invisible aligners and advanced orthodontic
-          care for perfectly aligned teeth.
-        </p>
+        <h3>Expert Doctors</h3>
+        <p>Highly experienced specialists for premium dental treatment.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fa-solid fa-hospital"></i>
+        <h3>Luxury Clinic</h3>
+        <p>Modern interior, relaxing environment, and premium experience.</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fa-solid fa-heart-pulse"></i>
+        <h3>Painless Treatment</h3>
+        <p>Comfort-focused dental procedures with advanced technology.</p>
       </div>
 
     </div>
 
   </section>
 
-  <!-- Stats -->
-  <section id="stats">
+  <!-- =========================
+       GALLERY
+  ========================== -->
+
+  <section id="gallery">
 
     <div class="section-title">
-      <h2>Trusted By Thousands</h2>
+      <h2>Our Luxury Clinic</h2>
       <p>
-        Our clinic combines innovation, artistry, and compassion
-        to redefine the modern dental experience.
+        Explore our advanced dental clinic and premium treatment rooms.
       </p>
     </div>
 
-    <div class="stats">
+    <div class="gallery">
 
-      <div class="stat-box">
-        <h3 class="counter" data-target="15">0</h3>
-        <p>Years Experience</p>
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop">
+
+      <img src="https://images.unsplash.com/photo-1588776814546-ec7e1c9c6f93?q=80&w=1200&auto=format&fit=crop">
+
+      <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1200&auto=format&fit=crop">
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       DOCTORS
+  ========================== -->
+
+  <section id="doctors">
+
+    <div class="section-title">
+      <h2>Meet Our Specialists</h2>
+      <p>
+        Premium dental care by highly experienced doctors.
+      </p>
+    </div>
+
+    <div class="doctor-grid">
+
+      <div class="doctor-card">
+
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="doctor-content">
+          <h3>Dr. Emily Watson</h3>
+          <p>
+            Cosmetic Dentist with 12+ years of experience
+            in smile transformation and implants.
+          </p>
+        </div>
+
       </div>
 
-      <div class="stat-box">
-        <h3 class="counter" data-target="12000">0</h3>
-        <p>Happy Patients</p>
-      </div>
+      <div class="doctor-card">
 
-      <div class="stat-box">
-        <h3 class="counter" data-target="98">0</h3>
-        <p>Success Rate %</p>
-      </div>
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1200&auto=format&fit=crop">
 
-      <div class="stat-box">
-        <h3 class="counter" data-target="24">0</h3>
-        <p>Luxury Care Support</p>
+        <div class="doctor-content">
+          <h3>Dr. James Miller</h3>
+          <p>
+            Orthodontics expert specializing in invisible aligners
+            and advanced dental care.
+          </p>
+        </div>
+
       </div>
 
     </div>
 
   </section>
 
-  <!-- Testimonials -->
+  <!-- =========================
+       PARALLAX
+  ========================== -->
+
+  <section class="parallax">
+
+    <h2>
+      Creating Beautiful Smiles
+      With Modern Dentistry
+    </h2>
+
+  </section>
+
+  <!-- =========================
+       REVIEWS
+  ========================== -->
+
   <section id="reviews">
 
     <div class="section-title">
-      <h2>Patient Experience</h2>
+      <h2>Patient Reviews</h2>
       <p>
-        Real transformations. Real confidence. Real smiles.
+        Real experiences from our happy patients.
       </p>
     </div>
 
-    <div class="testimonial">
-      <i class="fa-solid fa-quote-left"></i>
+    <div class="review-grid">
 
-      <p>
-        “Absolutely the best dental experience I’ve ever had.
-        The clinic feels luxurious, the staff is exceptional,
-        and my smile transformation exceeded expectations.”
-      </p>
+      <div class="review-card">
 
-      <h4>— Sophia Williams</h4>
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          “Absolutely amazing experience. The clinic feels luxurious
+          and the doctors are incredibly professional.”
+        </p>
+
+        <h4>- Sophia Williams</h4>
+
+      </div>
+
+      <div class="review-card">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          “Best smile transformation ever. The treatment was painless
+          and the results exceeded my expectations.”
+        </p>
+
+        <h4>- Daniel Carter</h4>
+
+      </div>
+
+      <div class="review-card">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          “The staff is friendly, clinic is modern,
+          and the service is top-notch.”
+        </p>
+
+        <h4>- Olivia Brown</h4>
+
+      </div>
+
     </div>
 
   </section>
 
-  <!-- CTA -->
-  <section class="cta" id="contact">
+  <!-- =========================
+       BLOGS
+  ========================== -->
 
-    <div class="cta-box">
-      <h2>Your Dream Smile Starts Today</h2>
+  <section id="blogs">
 
+    <div class="section-title">
+      <h2>Latest Blogs</h2>
       <p>
-        Schedule your premium consultation and experience
-        elite dentistry with cutting-edge technology and
-        personalized care.
+        Dental tips and smile care insights.
       </p>
+    </div>
 
-      <a href="#" class="btn">
-        Book Your Consultation
-      </a>
+    <div class="blog-grid">
+
+      <div class="blog-card">
+
+        <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="blog-content">
+
+          <h3>Top 5 Teeth Whitening Tips</h3>
+
+          <p>
+            Discover how to maintain a brighter and healthier smile naturally.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="blog-card">
+
+        <img src="https://images.unsplash.com/photo-1588776814546-ec7e1c9c6f93?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="blog-content">
+
+          <h3>Benefits of Dental Implants</h3>
+
+          <p>
+            Learn why implants are the best permanent solution for missing teeth.
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
 
   </section>
 
-  <!-- Footer -->
+  <!-- =========================
+       BOOKING FORM
+  ========================== -->
+
+  <section id="booking">
+
+    <div class="section-title">
+      <h2>Book Appointment</h2>
+      <p>
+        Schedule your premium dental consultation today.
+      </p>
+    </div>
+
+    <div class="booking-wrapper">
+
+      <div class="booking-form">
+
+        <form>
+
+          <input type="text" placeholder="Full Name" required>
+
+          <input type="email" placeholder="Email Address" required>
+
+          <input type="tel" placeholder="Phone Number" required>
+
+          <select required>
+            <option>Select Service</option>
+            <option>Teeth Whitening</option>
+            <option>Dental Implants</option>
+            <option>Smile Makeover</option>
+            <option>Orthodontics</option>
+          </select>
+
+          <textarea placeholder="Your Message"></textarea>
+
+          <button class="btn" type="submit">
+            Book Appointment
+          </button>
+
+        </form>
+
+      </div>
+
+      <div>
+
+        <img
+          style="border-radius:30px;"
+          src="https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=1200&auto=format&fit=crop">
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
   <footer>
 
     <p>
-      © 2026 Luxury Dental Care. All Rights Reserved.
+      © 2026 Luxury Dental Clinic. All Rights Reserved.
     </p>
-
-    <div class="socials">
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#"><i class="fa-brands fa-facebook"></i></a>
-      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-    </div>
 
   </footer>
 
-  <!-- Scripts -->
+  <!-- =========================
+       WHATSAPP BUTTON
+  ========================== -->
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/919648470944"
+    target="_blank">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+  </a>
+
+  <!-- =========================
+       SCROLL ANIMATION
+  ========================== -->
+
   <script>
 
-    // Counter Animation
-    const counters = document.querySelectorAll('.counter');
-
-    counters.forEach(counter => {
-
-      const updateCounter = () => {
-
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-
-        const increment = target / 100;
-
-        if(count < target){
-          counter.innerText = Math.ceil(count + increment);
-          setTimeout(updateCounter, 20);
-        } else {
-          counter.innerText = target;
-        }
-      }
-
-      updateCounter();
-    });
-
-    // Reveal on Scroll
-    const revealElements = document.querySelectorAll(
-      '.service-card, .stat-box, .testimonial, .cta-box'
+    const elements = document.querySelectorAll(
+      '.feature-card, .doctor-card, .review-card, .blog-card, .gallery img'
     );
 
-    const revealOnScroll = () => {
+    const reveal = () => {
 
-      revealElements.forEach(el => {
+      elements.forEach(el => {
+
+        const top = el.getBoundingClientRect().top;
 
         const windowHeight = window.innerHeight;
-        const revealTop = el.getBoundingClientRect().top;
-        const revealPoint = 100;
 
-        if(revealTop < windowHeight - revealPoint){
-          el.style.opacity = "1";
-          el.style.transform = "translateY(0)";
+        if (top < windowHeight - 100) {
+
+          el.style.opacity = 1;
+          el.style.transform = "translateY(0px)";
+
         }
+
       });
+
     }
 
-    revealElements.forEach(el => {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(50px)";
-      el.style.transition = "all 0.8s ease";
+    elements.forEach(el => {
+
+      el.style.opacity = 0;
+      el.style.transform = "translateY(60px)";
+      el.style.transition = "all 0.9s ease";
+
     });
 
-    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('scroll', reveal);
 
-    revealOnScroll();
+    reveal();
 
   </script>
 
 </body>
-</html>
+
+  </html>
