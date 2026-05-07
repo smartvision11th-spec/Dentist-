@@ -1,10 +1,3 @@
-<!-- =========================
-3D PREMIUM DENTIST WEBSITE
-Ultra Premium Design
-Single index.html
-Ready For GitHub Upload
-========================= -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,23 +6,29 @@ Ready For GitHub Upload
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Luxury Dental 3D Experience</title>
+  <!-- SEO -->
+  <title>Luxury Dental Clinic | 3D Premium Dentist Website</title>
 
   <meta name="description"
-    content="Premium 3D dentist website with luxury animations, booking form, reviews, blogs, parallax and stunning visual effects." />
+    content="Premium luxury dental clinic website with 3D animations, booking form, reviews, doctors, blogs, WhatsApp booking and mobile responsive design.">
 
-  <!-- Google Fonts -->
+  <meta name="keywords"
+    content="dentist, dental clinic, cosmetic dentistry, implants, smile makeover, luxury dentist">
+
+  <meta name="author" content="Luxury Dental Clinic">
+
+  <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap"
     rel="stylesheet">
 
-  <!-- Icons -->
+  <!-- ICONS -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Three.js -->
+  <!-- THREE JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <style>
@@ -43,8 +42,8 @@ Ready For GitHub Upload
     body {
       background: #050816;
       color: white;
-      overflow-x: hidden;
       font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
     }
 
     canvas {
@@ -54,35 +53,49 @@ Ready For GitHub Upload
       z-index: -2;
     }
 
-    /* =========================
-       PARTICLE GLOW
-    ========================== */
+    h1,
+    h2,
+    h3 {
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* GLOW EFFECT */
 
     .glow {
       position: fixed;
-      width: 600px;
-      height: 600px;
+      width: 500px;
+      height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle,
-          rgba(0, 238, 255, 0.15),
+      background:
+        radial-gradient(circle,
+          rgba(0, 229, 255, 0.2),
           transparent 70%);
-      filter: blur(40px);
+      filter: blur(60px);
       z-index: -1;
-      animation: float 8s ease-in-out infinite;
+      animation: glowMove 8s infinite ease-in-out;
     }
 
     .glow:nth-child(1) {
       top: -200px;
-      left: -150px;
+      left: -100px;
     }
 
     .glow:nth-child(2) {
       bottom: -200px;
-      right: -150px;
-      animation-delay: 3s;
+      right: -100px;
+      animation-delay: 4s;
     }
 
-    @keyframes float {
+    @keyframes glowMove {
 
       0%,
       100% {
@@ -94,9 +107,7 @@ Ready For GitHub Upload
       }
     }
 
-    /* =========================
-       NAVBAR
-    ========================== */
+    /* NAVBAR */
 
     header {
       position: fixed;
@@ -118,24 +129,21 @@ Ready For GitHub Upload
     }
 
     .logo {
+      color: #00e5ff;
       font-size: 2rem;
       font-weight: bold;
-      font-family: 'Orbitron', sans-serif;
-      color: #00e5ff;
       text-shadow: 0 0 15px #00e5ff;
     }
 
     nav ul {
       display: flex;
-      gap: 35px;
+      gap: 30px;
       list-style: none;
     }
 
     nav ul li a {
       color: white;
-      text-decoration: none;
       transition: 0.3s;
-      font-weight: 500;
     }
 
     nav ul li a:hover {
@@ -143,17 +151,19 @@ Ready For GitHub Upload
     }
 
     .btn {
-      padding: 14px 30px;
+      padding: 14px 28px;
       border-radius: 50px;
       border: none;
-      background: linear-gradient(135deg, #00e5ff, #00bfff);
+      background:
+        linear-gradient(135deg,
+          #00e5ff,
+          #00bfff);
       color: black;
       font-weight: bold;
       cursor: pointer;
       transition: 0.4s;
-      box-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
-      text-decoration: none;
       display: inline-block;
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
     }
 
     .btn:hover {
@@ -161,9 +171,7 @@ Ready For GitHub Upload
       box-shadow: 0 0 40px rgba(0, 229, 255, 0.9);
     }
 
-    /* =========================
-       HERO
-    ========================== */
+    /* HERO */
 
     .hero {
       min-height: 100vh;
@@ -177,20 +185,19 @@ Ready For GitHub Upload
     }
 
     .hero-content {
-      transform-style: preserve-3d;
-      animation: hero3d 4s ease-in-out infinite;
-      max-width: 950px;
+      max-width: 900px;
+      animation: heroFloat 5s infinite ease-in-out;
     }
 
-    @keyframes hero3d {
+    @keyframes heroFloat {
 
       0%,
       100% {
-        transform: rotateX(0deg) rotateY(0deg);
+        transform: rotateY(0deg);
       }
 
       50% {
-        transform: rotateX(5deg) rotateY(-5deg);
+        transform: rotateY(6deg);
       }
     }
 
@@ -198,78 +205,31 @@ Ready For GitHub Upload
       font-size: 6rem;
       line-height: 1.1;
       margin-bottom: 25px;
-      font-family: 'Orbitron', sans-serif;
     }
 
-    .hero h1 span {
+    .hero span {
       color: #00e5ff;
-      text-shadow: 0 0 25px #00e5ff;
+      text-shadow: 0 0 20px #00e5ff;
     }
 
     .hero p {
-      color: #d1d5db;
+      color: #cbd5e1;
       line-height: 1.9;
-      max-width: 800px;
-      margin: auto;
-      margin-bottom: 40px;
-      font-size: 1.2rem;
+      margin-bottom: 35px;
+      font-size: 1.1rem;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 25px;
       justify-content: center;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
-    /* =========================
-       FLOATING CARD
-    ========================== */
-
-    .floating-card {
-      position: absolute;
-      right: 8%;
-      top: 30%;
-      width: 320px;
-      padding: 35px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 30px;
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transform-style: preserve-3d;
-      animation: rotateCard 6s infinite ease-in-out;
-      box-shadow: 0 0 40px rgba(0, 229, 255, 0.2);
-    }
-
-    @keyframes rotateCard {
-
-      0%,
-      100% {
-        transform: rotateY(0deg) rotateX(0deg);
-      }
-
-      50% {
-        transform: rotateY(15deg) rotateX(8deg);
-      }
-    }
-
-    .floating-card h3 {
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-    }
-
-    .floating-card p {
-      color: #cbd5e1;
-      line-height: 1.8;
-    }
-
-    /* =========================
-       SECTION
-    ========================== */
+    /* SECTION */
 
     section {
       padding: 120px 8%;
-      position: relative;
     }
 
     .section-title {
@@ -278,10 +238,9 @@ Ready For GitHub Upload
     }
 
     .section-title h2 {
-      font-size: 3.5rem;
-      font-family: 'Orbitron', sans-serif;
-      margin-bottom: 20px;
+      font-size: 3rem;
       color: #00e5ff;
+      margin-bottom: 20px;
     }
 
     .section-title p {
@@ -291,42 +250,47 @@ Ready For GitHub Upload
       line-height: 1.8;
     }
 
-    /* =========================
-       3D CARDS
-    ========================== */
+    /* GRID */
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 35px;
+      grid-template-columns:
+        repeat(auto-fit,
+          minmax(300px, 1fr));
+      gap: 30px;
     }
 
+    /* CARDS */
+
     .card {
-      background: rgba(255, 255, 255, 0.05);
+      background:
+        rgba(255, 255, 255, 0.05);
       border-radius: 30px;
       padding: 35px;
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(15px);
+      border:
+        1px solid rgba(255, 255, 255, 0.08);
       transition: 0.4s;
       transform-style: preserve-3d;
-      perspective: 1000px;
     }
 
     .card:hover {
-      transform: rotateY(10deg) rotateX(10deg) translateY(-10px);
-      box-shadow: 0 20px 50px rgba(0, 229, 255, 0.25);
+      transform:
+        rotateY(10deg)
+        rotateX(10deg)
+        translateY(-10px);
+      box-shadow:
+        0 20px 50px rgba(0, 229, 255, 0.25);
     }
 
     .card i {
       font-size: 3rem;
       color: #00e5ff;
       margin-bottom: 20px;
-      text-shadow: 0 0 15px #00e5ff;
     }
 
     .card h3 {
       margin-bottom: 15px;
-      font-size: 1.6rem;
     }
 
     .card p {
@@ -334,41 +298,13 @@ Ready For GitHub Upload
       line-height: 1.8;
     }
 
-    /* =========================
-       PARALLAX
-    ========================== */
-
-    .parallax {
-      height: 500px;
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.65),
-          rgba(0, 0, 0, 0.65)),
-        url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1600&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      border-radius: 40px;
-      overflow: hidden;
-    }
-
-    .parallax h2 {
-      font-size: 4rem;
-      max-width: 900px;
-      color: white;
-      text-shadow: 0 0 20px black;
-    }
-
-    /* =========================
-       GALLERY
-    ========================== */
+    /* GALLERY */
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns:
+        repeat(auto-fit,
+          minmax(300px, 1fr));
       gap: 25px;
     }
 
@@ -377,26 +313,80 @@ Ready For GitHub Upload
       object-fit: cover;
       border-radius: 30px;
       transition: 0.5s;
-      transform-style: preserve-3d;
     }
 
     .gallery img:hover {
-      transform: scale(1.05) rotateY(10deg);
-      box-shadow: 0 20px 50px rgba(0, 229, 255, 0.3);
+      transform:
+        scale(1.05)
+        rotateY(8deg);
+      box-shadow:
+        0 20px 40px rgba(0, 229, 255, 0.3);
     }
 
-    /* =========================
-       FORM
-    ========================== */
+    /* PARALLAX */
+
+    .parallax {
+      height: 450px;
+      border-radius: 40px;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.65),
+          rgba(0, 0, 0, 0.65)),
+        url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1600&auto=format&fit=crop');
+
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .parallax h2 {
+      font-size: 4rem;
+      max-width: 900px;
+    }
+
+    /* REVIEW */
+
+    .review-card {
+      animation: reviewFloat 4s infinite ease-in-out;
+    }
+
+    @keyframes reviewFloat {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* BLOG */
+
+    .blog-img {
+      border-radius: 20px;
+      margin-bottom: 20px;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* FORM */
 
     .form-box {
-      max-width: 800px;
+      max-width: 850px;
       margin: auto;
-      padding: 50px;
+      background:
+        rgba(255, 255, 255, 0.05);
+      padding: 45px;
       border-radius: 35px;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(15px);
+      border:
+        1px solid rgba(255, 255, 255, 0.08);
     }
 
     .form-box input,
@@ -405,11 +395,12 @@ Ready For GitHub Upload
       width: 100%;
       padding: 18px;
       margin-bottom: 20px;
-      border-radius: 14px;
       border: none;
-      background: rgba(255, 255, 255, 0.08);
-      color: white;
+      border-radius: 14px;
       outline: none;
+      background:
+        rgba(255, 255, 255, 0.08);
+      color: white;
     }
 
     textarea {
@@ -417,14 +408,20 @@ Ready For GitHub Upload
       height: 140px;
     }
 
-    /* =========================
-       WHATSAPP
-    ========================== */
+    /* FOOTER */
+
+    footer {
+      padding: 50px;
+      text-align: center;
+      color: #94a3b8;
+    }
+
+    /* WHATSAPP */
 
     .whatsapp {
       position: fixed;
-      bottom: 25px;
       right: 25px;
+      bottom: 25px;
       width: 75px;
       height: 75px;
       border-radius: 50%;
@@ -435,7 +432,8 @@ Ready For GitHub Upload
       color: white;
       font-size: 2rem;
       z-index: 999;
-      box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
+      box-shadow:
+        0 0 25px rgba(37, 211, 102, 0.8);
       animation: pulse 2s infinite;
     }
 
@@ -447,42 +445,88 @@ Ready For GitHub Upload
       }
 
       50% {
-        transform: scale(1.1);
+        transform: scale(1.08);
       }
     }
 
-    /* =========================
-       RESPONSIVE
-    ========================== */
-
-    @media(max-width:1000px) {
-
-      .hero h1 {
-        font-size: 4rem;
-      }
-
-      .floating-card {
-        display: none;
-      }
-    }
+    /* MOBILE RESPONSIVE */
 
     @media(max-width:768px) {
+
+      body {
+        overflow-x: hidden;
+      }
 
       nav ul {
         display: none;
       }
 
+      nav {
+        padding: 15px 20px;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
       .hero h1 {
-        font-size: 3rem;
+        font-size: 2.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 280px;
+      }
+
+      section {
+        padding: 80px 20px;
       }
 
       .section-title h2 {
-        font-size: 2.3rem;
+        font-size: 2rem;
+      }
+
+      .grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery img {
+        height: 240px;
+      }
+
+      .parallax {
+        height: 300px;
+        background-attachment: scroll;
       }
 
       .parallax h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
+
+      .form-box {
+        padding: 25px;
+      }
+
+      .whatsapp {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+      }
+
+      canvas {
+        display: none;
+      }
+
     }
   </style>
 
@@ -490,13 +534,11 @@ Ready For GitHub Upload
 
 <body>
 
-  <!-- GLOW EFFECT -->
+  <!-- GLOW -->
   <div class="glow"></div>
   <div class="glow"></div>
 
-  <!-- =========================
-       NAVBAR
-  ========================== -->
+  <!-- NAVBAR -->
 
   <header>
 
@@ -505,21 +547,28 @@ Ready For GitHub Upload
       <div class="logo">LUXDENT</div>
 
       <ul>
+
         <li><a href="#features">Features</a></li>
+
         <li><a href="#gallery">Gallery</a></li>
+
         <li><a href="#reviews">Reviews</a></li>
+
+        <li><a href="#blogs">Blogs</a></li>
+
         <li><a href="#booking">Booking</a></li>
+
       </ul>
 
-      <a href="#booking" class="btn">Book Now</a>
+      <a href="#booking" class="btn">
+        Book Now
+      </a>
 
     </nav>
 
   </header>
 
-  <!-- =========================
-       HERO
-  ========================== -->
+  <!-- HERO -->
 
   <section class="hero">
 
@@ -531,9 +580,9 @@ Ready For GitHub Upload
       </h1>
 
       <p>
-        Experience premium smile transformation with advanced
-        AI-powered dental care, luxury treatment rooms,
-        stunning 3D animations, and elite specialists.
+        Experience premium smile transformation with luxury
+        dental care, futuristic 3D visuals, expert doctors,
+        painless treatments, and modern technology.
       </p>
 
       <div class="hero-buttons">
@@ -552,24 +601,9 @@ Ready For GitHub Upload
 
     </div>
 
-    <!-- Floating 3D Card -->
-    <div class="floating-card">
-
-      <h3>Luxury Smile Care</h3>
-
-      <p>
-        Cosmetic dentistry, implants, aligners,
-        whitening, painless treatment,
-        premium hospitality, and modern technology.
-      </p>
-
-    </div>
-
   </section>
 
-  <!-- =========================
-       FEATURES
-  ========================== -->
+  <!-- FEATURES -->
 
   <section id="features">
 
@@ -578,7 +612,7 @@ Ready For GitHub Upload
       <h2>PREMIUM FEATURES</h2>
 
       <p>
-        Ultra-modern dental care experience with luxury aesthetics.
+        Luxury dental care experience with modern technology.
       </p>
 
     </div>
@@ -586,55 +620,55 @@ Ready For GitHub Upload
     <div class="grid">
 
       <div class="card">
+
         <i class="fa-solid fa-tooth"></i>
+
         <h3>Cosmetic Dentistry</h3>
-        <p>Advanced smile makeovers and veneers.</p>
+
+        <p>
+          Advanced smile transformation and whitening.
+        </p>
+
       </div>
 
       <div class="card">
+
         <i class="fa-solid fa-user-doctor"></i>
-        <h3>Expert Specialists</h3>
-        <p>Top-rated dental professionals with global expertise.</p>
+
+        <h3>Expert Doctors</h3>
+
+        <p>
+          Highly experienced specialists for dental care.
+        </p>
+
       </div>
 
       <div class="card">
+
         <i class="fa-solid fa-heart-pulse"></i>
+
         <h3>Painless Treatment</h3>
-        <p>Modern technology for comfortable procedures.</p>
+
+        <p>
+          Comfortable procedures using advanced technology.
+        </p>
+
       </div>
 
     </div>
 
   </section>
 
-  <!-- =========================
-       PARALLAX
-  ========================== -->
-
-  <section>
-
-    <div class="parallax">
-
-      <h2>
-        3D LUXURY DENTAL EXPERIENCE
-      </h2>
-
-    </div>
-
-  </section>
-
-  <!-- =========================
-       GALLERY
-  ========================== -->
+  <!-- GALLERY -->
 
   <section id="gallery">
 
     <div class="section-title">
 
-      <h2>OUR CLINIC</h2>
+      <h2>LUXURY CLINIC</h2>
 
       <p>
-        Explore the premium luxury environment.
+        Explore our modern dental environment.
       </p>
 
     </div>
@@ -651,9 +685,21 @@ Ready For GitHub Upload
 
   </section>
 
-  <!-- =========================
-       REVIEWS
-  ========================== -->
+  <!-- PARALLAX -->
+
+  <section>
+
+    <div class="parallax">
+
+      <h2>
+        3D LUXURY DENTAL EXPERIENCE
+      </h2>
+
+    </div>
+
+  </section>
+
+  <!-- REVIEWS -->
 
   <section id="reviews">
 
@@ -662,7 +708,63 @@ Ready For GitHub Upload
       <h2>PATIENT REVIEWS</h2>
 
       <p>
-        Trusted by thousands of happy patients.
+        Real experiences from happy patients.
+      </p>
+
+    </div>
+
+    <div class="grid">
+
+      <div class="card review-card">
+
+        <i class="fa-solid fa-star"></i>
+
+        <h3>Sarah Johnson</h3>
+
+        <p>
+          “Absolutely amazing clinic with futuristic technology.”
+        </p>
+
+      </div>
+
+      <div class="card review-card">
+
+        <i class="fa-solid fa-star"></i>
+
+        <h3>Michael Carter</h3>
+
+        <p>
+          “The smile makeover completely changed my confidence.”
+        </p>
+
+      </div>
+
+      <div class="card review-card">
+
+        <i class="fa-solid fa-star"></i>
+
+        <h3>Emily Brown</h3>
+
+        <p>
+          “Luxury environment with very professional doctors.”
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BLOGS -->
+
+  <section id="blogs">
+
+    <div class="section-title">
+
+      <h2>LATEST BLOGS</h2>
+
+      <p>
+        Learn modern dental care tips.
       </p>
 
     </div>
@@ -670,36 +772,38 @@ Ready For GitHub Upload
     <div class="grid">
 
       <div class="card">
-        <i class="fa-solid fa-star"></i>
-        <h3>Sophia Williams</h3>
+
+        <img
+          class="blog-img"
+          src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>Benefits Of Teeth Whitening</h3>
+
         <p>
-          “The most futuristic dental clinic I have ever visited.”
+          Discover how professional whitening improves confidence.
         </p>
+
       </div>
 
       <div class="card">
-        <i class="fa-solid fa-star"></i>
-        <h3>Daniel Carter</h3>
-        <p>
-          “Amazing experience with stunning smile transformation.”
-        </p>
-      </div>
 
-      <div class="card">
-        <i class="fa-solid fa-star"></i>
-        <h3>Olivia Brown</h3>
+        <img
+          class="blog-img"
+          src="https://images.unsplash.com/photo-1588776814546-ec7e1c9c6f93?q=80&w=1200&auto=format&fit=crop">
+
+        <h3>Modern Dental Implants</h3>
+
         <p>
-          “Luxury environment and painless treatment.”
+          Learn why implants are the best permanent solution.
         </p>
+
       </div>
 
     </div>
 
   </section>
 
-  <!-- =========================
-       BOOKING FORM
-  ========================== -->
+  <!-- BOOKING -->
 
   <section id="booking">
 
@@ -708,24 +812,35 @@ Ready For GitHub Upload
       <h2>BOOK APPOINTMENT</h2>
 
       <p>
-        Schedule your premium dental consultation.
+        Schedule your luxury consultation today.
       </p>
 
     </div>
 
     <div class="form-box">
 
-      <form>
+      <form id="appointmentForm">
 
-        <input type="text" placeholder="Full Name" required>
+        <input type="text"
+          id="name"
+          placeholder="Full Name"
+          required>
 
-        <input type="email" placeholder="Email Address" required>
+        <input type="email"
+          id="email"
+          placeholder="Email Address"
+          required>
 
-        <input type="tel" placeholder="Phone Number" required>
+        <input type="tel"
+          id="phone"
+          placeholder="Phone Number"
+          required>
 
-        <select required>
+        <select id="service" required>
 
-          <option>Select Treatment</option>
+          <option value="">
+            Select Treatment
+          </option>
 
           <option>Teeth Whitening</option>
 
@@ -737,7 +852,9 @@ Ready For GitHub Upload
 
         </select>
 
-        <textarea placeholder="Message"></textarea>
+        <textarea
+          id="message"
+          placeholder="Message"></textarea>
 
         <button class="btn" type="submit">
           Book Consultation
@@ -749,20 +866,15 @@ Ready For GitHub Upload
 
   </section>
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
 
-  <footer
-    style="padding:50px;text-align:center;color:#94a3b8;">
+  <footer>
 
-    © 2026 Luxury Dental 3D Experience
+    © 2026 Luxury Dental Clinic
 
   </footer>
 
-  <!-- =========================
-       WHATSAPP
-  ========================== -->
+  <!-- WHATSAPP -->
 
   <a
     class="whatsapp"
@@ -773,27 +885,24 @@ Ready For GitHub Upload
 
   </a>
 
-  <!-- =========================
-       THREE JS 3D BACKGROUND
-  ========================== -->
+  <!-- THREE JS -->
 
   <script>
 
-    // Scene
     const scene = new THREE.Scene();
 
-    // Camera
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
+    const camera =
+      new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
 
-    // Renderer
-    const renderer = new THREE.WebGLRenderer({
-      alpha: true
-    });
+    const renderer =
+      new THREE.WebGLRenderer({
+        alpha: true
+      });
 
     renderer.setSize(
       window.innerWidth,
@@ -804,41 +913,44 @@ Ready For GitHub Upload
       renderer.domElement
     );
 
-    // Geometry
-    const geometry = new THREE.TorusKnotGeometry(
-      10,
-      3,
-      100,
-      16
-    );
+    const geometry =
+      new THREE.TorusKnotGeometry(
+        10,
+        3,
+        100,
+        16
+      );
 
-    // Material
-    const material = new THREE.MeshStandardMaterial({
-      color: 0x00e5ff,
-      wireframe: true
-    });
+    const material =
+      new THREE.MeshStandardMaterial({
+        color: 0x00e5ff,
+        wireframe: true
+      });
 
-    // Mesh
-    const torus = new THREE.Mesh(
-      geometry,
-      material
-    );
+    const torus =
+      new THREE.Mesh(
+        geometry,
+        material
+      );
 
     scene.add(torus);
 
-    // Lights
-    const pointLight = new THREE.PointLight(
-      0xffffff,
-      1
-    );
+    const pointLight =
+      new THREE.PointLight(
+        0xffffff,
+        1
+      );
 
-    pointLight.position.set(20, 20, 20);
+    pointLight.position.set(
+      20,
+      20,
+      20
+    );
 
     scene.add(pointLight);
 
     camera.position.z = 30;
 
-    // Animation
     function animate() {
 
       requestAnimationFrame(animate);
@@ -852,20 +964,69 @@ Ready For GitHub Upload
 
     animate();
 
-    // Responsive
-    window.addEventListener('resize', () => {
+    window.addEventListener(
+      'resize',
+      () => {
 
-      camera.aspect =
-        window.innerWidth / window.innerHeight;
+        camera.aspect =
+          window.innerWidth / window.innerHeight;
 
-      camera.updateProjectionMatrix();
+        camera.updateProjectionMatrix();
 
-      renderer.setSize(
-        window.innerWidth,
-        window.innerHeight
-      );
+        renderer.setSize(
+          window.innerWidth,
+          window.innerHeight
+        );
 
-    });
+      }
+    );
+
+  </script>
+
+  <!-- WHATSAPP FORM REDIRECT -->
+
+  <script>
+
+    document
+      .getElementById("appointmentForm")
+      .addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        const name =
+          document.getElementById("name").value;
+
+        const email =
+          document.getElementById("email").value;
+
+        const phone =
+          document.getElementById("phone").value;
+
+        const service =
+          document.getElementById("service").value;
+
+        const message =
+          document.getElementById("message").value;
+
+        const whatsappMessage =
+`Hello Luxury Dental Clinic,
+
+I want to book an appointment.
+
+👤 Name: ${name}
+📧 Email: ${email}
+📱 Phone: ${phone}
+🦷 Service: ${service}
+
+📝 Message:
+${message}`;
+
+        const url =
+`https://wa.me/919648470944?text=${encodeURIComponent(whatsappMessage)}`;
+
+        window.open(url, "_blank");
+
+      });
 
   </script>
 
