@@ -1,42 +1,36 @@
-<!-- 
-PREMIUM DENTIST WEBSITE
-Single File: index.html
-Ready for GitHub Upload
--->
+<!-- =========================
+3D PREMIUM DENTIST WEBSITE
+Ultra Premium Design
+Single index.html
+Ready For GitHub Upload
+========================= -->
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO -->
-  <title>Luxury Dental Clinic | Premium Dentist Website</title>
+  <title>Luxury Dental 3D Experience</title>
 
   <meta name="description"
-    content="Premium dental clinic website with booking form, reviews, doctors, blogs, animations, and modern dental care experience." />
+    content="Premium 3D dentist website with luxury animations, booking form, reviews, blogs, parallax and stunning visual effects." />
 
-  <meta name="keywords"
-    content="Dentist, Dental Clinic, Teeth Whitening, Dental Implants, Cosmetic Dentistry, Orthodontics" />
-
-  <meta name="author" content="Luxury Dental Clinic">
-
-  <meta property="og:title" content="Luxury Dental Clinic">
-  <meta property="og:description"
-    content="Premium smile transformation with luxury dental care.">
-  <meta property="og:type" content="website">
-
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap"
     rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <style>
     * {
@@ -47,25 +41,57 @@ Ready for GitHub Upload
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: #08111f;
+      background: #050816;
       color: white;
       overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
     }
 
-    h1,
-    h2,
-    h3 {
-      font-family: 'Playfair Display', serif;
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -2;
     }
 
-    img {
-      width: 100%;
-      display: block;
+    /* =========================
+       PARTICLE GLOW
+    ========================== */
+
+    .glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+          rgba(0, 238, 255, 0.15),
+          transparent 70%);
+      filter: blur(40px);
+      z-index: -1;
+      animation: float 8s ease-in-out infinite;
     }
 
-    a {
-      text-decoration: none;
+    .glow:nth-child(1) {
+      top: -200px;
+      left: -150px;
+    }
+
+    .glow:nth-child(2) {
+      bottom: -200px;
+      right: -150px;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-40px);
+      }
     }
 
     /* =========================
@@ -77,15 +103,15 @@ Ready for GitHub Upload
       width: 100%;
       top: 0;
       z-index: 1000;
-      background: rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      background: rgba(0, 0, 0, 0.4);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     nav {
-      max-width: 1300px;
+      max-width: 1400px;
       margin: auto;
-      padding: 18px 30px;
+      padding: 20px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -94,39 +120,45 @@ Ready for GitHub Upload
     .logo {
       font-size: 2rem;
       font-weight: bold;
-      color: #7dd3fc;
+      font-family: 'Orbitron', sans-serif;
+      color: #00e5ff;
+      text-shadow: 0 0 15px #00e5ff;
     }
 
     nav ul {
       display: flex;
-      gap: 30px;
+      gap: 35px;
       list-style: none;
     }
 
     nav ul li a {
       color: white;
-      font-weight: 500;
+      text-decoration: none;
       transition: 0.3s;
+      font-weight: 500;
     }
 
     nav ul li a:hover {
-      color: #7dd3fc;
+      color: #00e5ff;
     }
 
     .btn {
-      padding: 14px 26px;
+      padding: 14px 30px;
       border-radius: 50px;
       border: none;
-      background: linear-gradient(135deg, #38bdf8, #7dd3fc);
+      background: linear-gradient(135deg, #00e5ff, #00bfff);
       color: black;
       font-weight: bold;
       cursor: pointer;
       transition: 0.4s;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 0 40px rgba(0, 229, 255, 0.9);
     }
 
     /* =========================
@@ -134,46 +166,101 @@ Ready for GitHub Upload
     ========================== */
 
     .hero {
-      height: 100vh;
-      position: relative;
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.6),
-          rgba(0, 0, 0, 0.6)),
-        url('https://images.unsplash.com/photo-1588776814546-ec7e1c9c6f93?q=80&w=1600&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      min-height: 100vh;
       display: flex;
       align-items: center;
+      justify-content: center;
+      text-align: center;
       padding: 0 8%;
+      position: relative;
+      perspective: 1000px;
     }
 
     .hero-content {
-      max-width: 700px;
-      animation: fadeUp 1.5s ease;
+      transform-style: preserve-3d;
+      animation: hero3d 4s ease-in-out infinite;
+      max-width: 950px;
+    }
+
+    @keyframes hero3d {
+
+      0%,
+      100% {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+
+      50% {
+        transform: rotateX(5deg) rotateY(-5deg);
+      }
     }
 
     .hero h1 {
-      font-size: 5rem;
+      font-size: 6rem;
       line-height: 1.1;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      font-family: 'Orbitron', sans-serif;
     }
 
-    .hero span {
-      color: #7dd3fc;
+    .hero h1 span {
+      color: #00e5ff;
+      text-shadow: 0 0 25px #00e5ff;
     }
 
     .hero p {
       color: #d1d5db;
-      line-height: 1.8;
-      margin-bottom: 30px;
-      font-size: 1.1rem;
+      line-height: 1.9;
+      max-width: 800px;
+      margin: auto;
+      margin-bottom: 40px;
+      font-size: 1.2rem;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 20px;
+      gap: 25px;
+      justify-content: center;
       flex-wrap: wrap;
+    }
+
+    /* =========================
+       FLOATING CARD
+    ========================== */
+
+    .floating-card {
+      position: absolute;
+      right: 8%;
+      top: 30%;
+      width: 320px;
+      padding: 35px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 30px;
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transform-style: preserve-3d;
+      animation: rotateCard 6s infinite ease-in-out;
+      box-shadow: 0 0 40px rgba(0, 229, 255, 0.2);
+    }
+
+    @keyframes rotateCard {
+
+      0%,
+      100% {
+        transform: rotateY(0deg) rotateX(0deg);
+      }
+
+      50% {
+        transform: rotateY(15deg) rotateX(8deg);
+      }
+    }
+
+    .floating-card h3 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .floating-card p {
+      color: #cbd5e1;
+      line-height: 1.8;
     }
 
     /* =========================
@@ -181,7 +268,8 @@ Ready for GitHub Upload
     ========================== */
 
     section {
-      padding: 110px 8%;
+      padding: 120px 8%;
+      position: relative;
     }
 
     .section-title {
@@ -190,58 +278,92 @@ Ready for GitHub Upload
     }
 
     .section-title h2 {
-      font-size: 3rem;
-      margin-bottom: 15px;
+      font-size: 3.5rem;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 20px;
+      color: #00e5ff;
     }
 
     .section-title p {
       color: #cbd5e1;
-      max-width: 750px;
+      max-width: 800px;
       margin: auto;
       line-height: 1.8;
     }
 
     /* =========================
-       FEATURES
+       3D CARDS
     ========================== */
 
-    .features-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 35px;
     }
 
-    .feature-card {
+    .card {
       background: rgba(255, 255, 255, 0.05);
+      border-radius: 30px;
       padding: 35px;
-      border-radius: 25px;
+      backdrop-filter: blur(18px);
       border: 1px solid rgba(255, 255, 255, 0.08);
       transition: 0.4s;
-      backdrop-filter: blur(10px);
+      transform-style: preserve-3d;
+      perspective: 1000px;
     }
 
-    .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2);
+    .card:hover {
+      transform: rotateY(10deg) rotateX(10deg) translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 229, 255, 0.25);
     }
 
-    .feature-card i {
-      font-size: 2.5rem;
-      color: #7dd3fc;
+    .card i {
+      font-size: 3rem;
+      color: #00e5ff;
       margin-bottom: 20px;
+      text-shadow: 0 0 15px #00e5ff;
     }
 
-    .feature-card h3 {
+    .card h3 {
       margin-bottom: 15px;
+      font-size: 1.6rem;
     }
 
-    .feature-card p {
+    .card p {
       color: #cbd5e1;
       line-height: 1.8;
     }
 
     /* =========================
-       CLINIC IMAGES
+       PARALLAX
+    ========================== */
+
+    .parallax {
+      height: 500px;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.65),
+          rgba(0, 0, 0, 0.65)),
+        url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 40px;
+      overflow: hidden;
+    }
+
+    .parallax h2 {
+      font-size: 4rem;
+      max-width: 900px;
+      color: white;
+      text-shadow: 0 0 20px black;
+    }
+
+    /* =========================
+       GALLERY
     ========================== */
 
     .gallery {
@@ -251,165 +373,40 @@ Ready for GitHub Upload
     }
 
     .gallery img {
-      border-radius: 25px;
-      height: 300px;
+      height: 320px;
       object-fit: cover;
+      border-radius: 30px;
       transition: 0.5s;
+      transform-style: preserve-3d;
     }
 
     .gallery img:hover {
-      transform: scale(1.04);
+      transform: scale(1.05) rotateY(10deg);
+      box-shadow: 0 20px 50px rgba(0, 229, 255, 0.3);
     }
 
     /* =========================
-       DOCTORS
+       FORM
     ========================== */
 
-    .doctor-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .doctor-card {
+    .form-box {
+      max-width: 800px;
+      margin: auto;
+      padding: 50px;
+      border-radius: 35px;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 30px;
-      overflow: hidden;
-      transition: 0.4s;
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .doctor-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .doctor-card img {
-      height: 350px;
-      object-fit: cover;
-    }
-
-    .doctor-content {
-      padding: 25px;
-    }
-
-    .doctor-content p {
-      color: #cbd5e1;
-      line-height: 1.7;
-      margin-top: 10px;
-    }
-
-    /* =========================
-       PARALLAX
-    ========================== */
-
-    .parallax {
-      height: 450px;
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.6),
-          rgba(0, 0, 0, 0.6)),
-        url('https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=1600&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .parallax h2 {
-      font-size: 4rem;
-      max-width: 900px;
-    }
-
-    /* =========================
-       REVIEWS
-    ========================== */
-
-    .review-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-    }
-
-    .review-card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 35px;
-      border-radius: 25px;
-    }
-
-    .stars {
-      color: gold;
-      margin-bottom: 20px;
-    }
-
-    .review-card p {
-      color: #cbd5e1;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    /* =========================
-       BLOGS
-    ========================== */
-
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-    }
-
-    .blog-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 25px;
-      overflow: hidden;
-      transition: 0.4s;
-    }
-
-    .blog-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .blog-card img {
-      height: 250px;
-      object-fit: cover;
-    }
-
-    .blog-content {
-      padding: 25px;
-    }
-
-    .blog-content p {
-      color: #cbd5e1;
-      line-height: 1.8;
-      margin-top: 15px;
-    }
-
-    /* =========================
-       BOOKING FORM
-    ========================== */
-
-    .booking-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 40px;
-      align-items: center;
-    }
-
-    .booking-form {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 40px;
-      border-radius: 30px;
-      backdrop-filter: blur(10px);
-    }
-
-    .booking-form input,
-    .booking-form textarea,
-    .booking-form select {
+    .form-box input,
+    .form-box textarea,
+    .form-box select {
       width: 100%;
-      padding: 16px;
+      padding: 18px;
       margin-bottom: 20px;
-      border: none;
       border-radius: 14px;
+      border: none;
       background: rgba(255, 255, 255, 0.08);
       color: white;
       outline: none;
@@ -417,21 +414,7 @@ Ready for GitHub Upload
 
     textarea {
       resize: none;
-      height: 130px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    footer {
-      padding: 50px 8%;
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    footer p {
-      color: #94a3b8;
+      height: 140px;
     }
 
     /* =========================
@@ -440,49 +423,31 @@ Ready for GitHub Upload
 
     .whatsapp {
       position: fixed;
-      right: 25px;
       bottom: 25px;
-      width: 70px;
-      height: 70px;
+      right: 25px;
+      width: 75px;
+      height: 75px;
       border-radius: 50%;
       background: #25D366;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
       color: white;
+      font-size: 2rem;
       z-index: 999;
-      box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
+      box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
-      0% {
+
+      0%,
+      100% {
         transform: scale(1);
       }
 
       50% {
-        transform: scale(1.08);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    /* =========================
-       ANIMATIONS
-    ========================== */
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(80px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
+        transform: scale(1.1);
       }
     }
 
@@ -490,7 +455,18 @@ Ready for GitHub Upload
        RESPONSIVE
     ========================== */
 
-    @media(max-width:900px) {
+    @media(max-width:1000px) {
+
+      .hero h1 {
+        font-size: 4rem;
+      }
+
+      .floating-card {
+        display: none;
+      }
+    }
+
+    @media(max-width:768px) {
 
       nav ul {
         display: none;
@@ -500,36 +476,45 @@ Ready for GitHub Upload
         font-size: 3rem;
       }
 
-      .parallax h2 {
+      .section-title h2 {
         font-size: 2.3rem;
+      }
+
+      .parallax h2 {
+        font-size: 2.2rem;
       }
     }
   </style>
+
 </head>
 
 <body>
+
+  <!-- GLOW EFFECT -->
+  <div class="glow"></div>
+  <div class="glow"></div>
 
   <!-- =========================
        NAVBAR
   ========================== -->
 
   <header>
+
     <nav>
 
-      <div class="logo">LuxuryDental</div>
+      <div class="logo">LUXDENT</div>
 
       <ul>
         <li><a href="#features">Features</a></li>
         <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#doctors">Doctors</a></li>
         <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#blogs">Blogs</a></li>
         <li><a href="#booking">Booking</a></li>
       </ul>
 
       <a href="#booking" class="btn">Book Now</a>
 
     </nav>
+
   </header>
 
   <!-- =========================
@@ -541,24 +526,42 @@ Ready for GitHub Upload
     <div class="hero-content">
 
       <h1>
-        Premium
-        <span>Dental Care</span>
-        Experience
+        FUTURE OF
+        <span>DENTISTRY</span>
       </h1>
 
       <p>
-        Experience luxury dental treatment with advanced
-        technology, cosmetic smile transformations,
-        expert doctors, and personalized patient care.
+        Experience premium smile transformation with advanced
+        AI-powered dental care, luxury treatment rooms,
+        stunning 3D animations, and elite specialists.
       </p>
 
       <div class="hero-buttons">
-        <a href="#booking" class="btn">Book Appointment</a>
-        <a href="#gallery" class="btn"
+
+        <a href="#booking" class="btn">
+          Book Appointment
+        </a>
+
+        <a href="#gallery"
+          class="btn"
           style="background:white;color:black;">
           Explore Clinic
         </a>
+
       </div>
+
+    </div>
+
+    <!-- Floating 3D Card -->
+    <div class="floating-card">
+
+      <h3>Luxury Smile Care</h3>
+
+      <p>
+        Cosmetic dentistry, implants, aligners,
+        whitening, painless treatment,
+        premium hospitality, and modern technology.
+      </p>
 
     </div>
 
@@ -571,38 +574,50 @@ Ready for GitHub Upload
   <section id="features">
 
     <div class="section-title">
-      <h2>Why Choose Us</h2>
+
+      <h2>PREMIUM FEATURES</h2>
+
       <p>
-        We provide world-class dental care with luxury comfort
-        and advanced technology.
+        Ultra-modern dental care experience with luxury aesthetics.
       </p>
+
     </div>
 
-    <div class="features-grid">
+    <div class="grid">
 
-      <div class="feature-card">
+      <div class="card">
         <i class="fa-solid fa-tooth"></i>
         <h3>Cosmetic Dentistry</h3>
-        <p>Smile makeovers, veneers, whitening, and digital smile design.</p>
+        <p>Advanced smile makeovers and veneers.</p>
       </div>
 
-      <div class="feature-card">
+      <div class="card">
         <i class="fa-solid fa-user-doctor"></i>
-        <h3>Expert Doctors</h3>
-        <p>Highly experienced specialists for premium dental treatment.</p>
+        <h3>Expert Specialists</h3>
+        <p>Top-rated dental professionals with global expertise.</p>
       </div>
 
-      <div class="feature-card">
-        <i class="fa-solid fa-hospital"></i>
-        <h3>Luxury Clinic</h3>
-        <p>Modern interior, relaxing environment, and premium experience.</p>
-      </div>
-
-      <div class="feature-card">
+      <div class="card">
         <i class="fa-solid fa-heart-pulse"></i>
         <h3>Painless Treatment</h3>
-        <p>Comfort-focused dental procedures with advanced technology.</p>
+        <p>Modern technology for comfortable procedures.</p>
       </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       PARALLAX
+  ========================== -->
+
+  <section>
+
+    <div class="parallax">
+
+      <h2>
+        3D LUXURY DENTAL EXPERIENCE
+      </h2>
 
     </div>
 
@@ -615,10 +630,13 @@ Ready for GitHub Upload
   <section id="gallery">
 
     <div class="section-title">
-      <h2>Our Luxury Clinic</h2>
+
+      <h2>OUR CLINIC</h2>
+
       <p>
-        Explore our advanced dental clinic and premium treatment rooms.
+        Explore the premium luxury environment.
       </p>
+
     </div>
 
     <div class="gallery">
@@ -634,174 +652,45 @@ Ready for GitHub Upload
   </section>
 
   <!-- =========================
-       DOCTORS
-  ========================== -->
-
-  <section id="doctors">
-
-    <div class="section-title">
-      <h2>Meet Our Specialists</h2>
-      <p>
-        Premium dental care by highly experienced doctors.
-      </p>
-    </div>
-
-    <div class="doctor-grid">
-
-      <div class="doctor-card">
-
-        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="doctor-content">
-          <h3>Dr. Emily Watson</h3>
-          <p>
-            Cosmetic Dentist with 12+ years of experience
-            in smile transformation and implants.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="doctor-card">
-
-        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="doctor-content">
-          <h3>Dr. James Miller</h3>
-          <p>
-            Orthodontics expert specializing in invisible aligners
-            and advanced dental care.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- =========================
-       PARALLAX
-  ========================== -->
-
-  <section class="parallax">
-
-    <h2>
-      Creating Beautiful Smiles
-      With Modern Dentistry
-    </h2>
-
-  </section>
-
-  <!-- =========================
        REVIEWS
   ========================== -->
 
   <section id="reviews">
 
     <div class="section-title">
-      <h2>Patient Reviews</h2>
+
+      <h2>PATIENT REVIEWS</h2>
+
       <p>
-        Real experiences from our happy patients.
+        Trusted by thousands of happy patients.
       </p>
-    </div>
-
-    <div class="review-grid">
-
-      <div class="review-card">
-
-        <div class="stars">
-          ★★★★★
-        </div>
-
-        <p>
-          “Absolutely amazing experience. The clinic feels luxurious
-          and the doctors are incredibly professional.”
-        </p>
-
-        <h4>- Sophia Williams</h4>
-
-      </div>
-
-      <div class="review-card">
-
-        <div class="stars">
-          ★★★★★
-        </div>
-
-        <p>
-          “Best smile transformation ever. The treatment was painless
-          and the results exceeded my expectations.”
-        </p>
-
-        <h4>- Daniel Carter</h4>
-
-      </div>
-
-      <div class="review-card">
-
-        <div class="stars">
-          ★★★★★
-        </div>
-
-        <p>
-          “The staff is friendly, clinic is modern,
-          and the service is top-notch.”
-        </p>
-
-        <h4>- Olivia Brown</h4>
-
-      </div>
 
     </div>
 
-  </section>
+    <div class="grid">
 
-  <!-- =========================
-       BLOGS
-  ========================== -->
-
-  <section id="blogs">
-
-    <div class="section-title">
-      <h2>Latest Blogs</h2>
-      <p>
-        Dental tips and smile care insights.
-      </p>
-    </div>
-
-    <div class="blog-grid">
-
-      <div class="blog-card">
-
-        <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="blog-content">
-
-          <h3>Top 5 Teeth Whitening Tips</h3>
-
-          <p>
-            Discover how to maintain a brighter and healthier smile naturally.
-          </p>
-
-        </div>
-
+      <div class="card">
+        <i class="fa-solid fa-star"></i>
+        <h3>Sophia Williams</h3>
+        <p>
+          “The most futuristic dental clinic I have ever visited.”
+        </p>
       </div>
 
-      <div class="blog-card">
+      <div class="card">
+        <i class="fa-solid fa-star"></i>
+        <h3>Daniel Carter</h3>
+        <p>
+          “Amazing experience with stunning smile transformation.”
+        </p>
+      </div>
 
-        <img src="https://images.unsplash.com/photo-1588776814546-ec7e1c9c6f93?q=80&w=1200&auto=format&fit=crop">
-
-        <div class="blog-content">
-
-          <h3>Benefits of Dental Implants</h3>
-
-          <p>
-            Learn why implants are the best permanent solution for missing teeth.
-          </p>
-
-        </div>
-
+      <div class="card">
+        <i class="fa-solid fa-star"></i>
+        <h3>Olivia Brown</h3>
+        <p>
+          “Luxury environment and painless treatment.”
+        </p>
       </div>
 
     </div>
@@ -815,49 +704,46 @@ Ready for GitHub Upload
   <section id="booking">
 
     <div class="section-title">
-      <h2>Book Appointment</h2>
+
+      <h2>BOOK APPOINTMENT</h2>
+
       <p>
-        Schedule your premium dental consultation today.
+        Schedule your premium dental consultation.
       </p>
+
     </div>
 
-    <div class="booking-wrapper">
+    <div class="form-box">
 
-      <div class="booking-form">
+      <form>
 
-        <form>
+        <input type="text" placeholder="Full Name" required>
 
-          <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
 
-          <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number" required>
 
-          <input type="tel" placeholder="Phone Number" required>
+        <select required>
 
-          <select required>
-            <option>Select Service</option>
-            <option>Teeth Whitening</option>
-            <option>Dental Implants</option>
-            <option>Smile Makeover</option>
-            <option>Orthodontics</option>
-          </select>
+          <option>Select Treatment</option>
 
-          <textarea placeholder="Your Message"></textarea>
+          <option>Teeth Whitening</option>
 
-          <button class="btn" type="submit">
-            Book Appointment
-          </button>
+          <option>Dental Implants</option>
 
-        </form>
+          <option>Smile Makeover</option>
 
-      </div>
+          <option>Aligners</option>
 
-      <div>
+        </select>
 
-        <img
-          style="border-radius:30px;"
-          src="https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=1200&auto=format&fit=crop">
+        <textarea placeholder="Message"></textarea>
 
-      </div>
+        <button class="btn" type="submit">
+          Book Consultation
+        </button>
+
+      </form>
 
     </div>
 
@@ -867,16 +753,15 @@ Ready for GitHub Upload
        FOOTER
   ========================== -->
 
-  <footer>
+  <footer
+    style="padding:50px;text-align:center;color:#94a3b8;">
 
-    <p>
-      © 2026 Luxury Dental Clinic. All Rights Reserved.
-    </p>
+    © 2026 Luxury Dental 3D Experience
 
   </footer>
 
   <!-- =========================
-       WHATSAPP BUTTON
+       WHATSAPP
   ========================== -->
 
   <a
@@ -889,48 +774,101 @@ Ready for GitHub Upload
   </a>
 
   <!-- =========================
-       SCROLL ANIMATION
+       THREE JS 3D BACKGROUND
   ========================== -->
 
   <script>
 
-    const elements = document.querySelectorAll(
-      '.feature-card, .doctor-card, .review-card, .blog-card, .gallery img'
+    // Scene
+    const scene = new THREE.Scene();
+
+    // Camera
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
     );
 
-    const reveal = () => {
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true
+    });
 
-      elements.forEach(el => {
+    renderer.setSize(
+      window.innerWidth,
+      window.innerHeight
+    );
 
-        const top = el.getBoundingClientRect().top;
+    document.body.appendChild(
+      renderer.domElement
+    );
 
-        const windowHeight = window.innerHeight;
+    // Geometry
+    const geometry = new THREE.TorusKnotGeometry(
+      10,
+      3,
+      100,
+      16
+    );
 
-        if (top < windowHeight - 100) {
+    // Material
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x00e5ff,
+      wireframe: true
+    });
 
-          el.style.opacity = 1;
-          el.style.transform = "translateY(0px)";
+    // Mesh
+    const torus = new THREE.Mesh(
+      geometry,
+      material
+    );
 
-        }
+    scene.add(torus);
 
-      });
+    // Lights
+    const pointLight = new THREE.PointLight(
+      0xffffff,
+      1
+    );
+
+    pointLight.position.set(20, 20, 20);
+
+    scene.add(pointLight);
+
+    camera.position.z = 30;
+
+    // Animation
+    function animate() {
+
+      requestAnimationFrame(animate);
+
+      torus.rotation.x += 0.003;
+      torus.rotation.y += 0.005;
+
+      renderer.render(scene, camera);
 
     }
 
-    elements.forEach(el => {
+    animate();
 
-      el.style.opacity = 0;
-      el.style.transform = "translateY(60px)";
-      el.style.transition = "all 0.9s ease";
+    // Responsive
+    window.addEventListener('resize', () => {
+
+      camera.aspect =
+        window.innerWidth / window.innerHeight;
+
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(
+        window.innerWidth,
+        window.innerHeight
+      );
 
     });
-
-    window.addEventListener('scroll', reveal);
-
-    reveal();
 
   </script>
 
 </body>
 
-  </html>
+</html>
